@@ -1231,30 +1231,26 @@
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
 ```
-document.querySelectorAll('a,button,input,select,textarea,.faq-q,.who-item,.service-card,.coverage-tag,.price-row').forEach(el => {
-  el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-  el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
-});
-
+// Add js-loaded for reveal animations
 document.body.classList.add('js-loaded');
 
 // Nav scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
 // Reveal on scroll
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
+var reveals = document.querySelectorAll('.reveal');
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
     if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), 80);
+      setTimeout(function() { e.target.classList.add('visible'); }, 80);
       obs.unobserve(e.target);
     }
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => obs.observe(el));
+reveals.forEach(function(el) { obs.observe(el); });
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(function(q) {
@@ -1268,45 +1264,37 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
   });
 });
 
-
 // Hamburger menu
 var hamburger = document.getElementById('hamburger');
 var mobileMenu = document.getElementById('mobileMenu');
 
-hamburger.addEventListener('click', function() {
-  var isOpen = hamburger.classList.contains('open');
-  hamburger.classList.toggle('open');
-  if (!isOpen) {
-    mobileMenu.style.display = 'flex';
-    setTimeout(function() { mobileMenu.classList.add('open'); }, 10);
-    document.body.style.overflow = 'hidden';
-  } else {
-    mobileMenu.classList.remove('open');
-    setTimeout(function() { mobileMenu.style.display = 'none'; }, 300);
-    document.body.style.overflow = '';
-  }
-});
-
-// Close button inside menu
-document.getElementById('mobileClose').addEventListener('click', function() {
+function closeMenu() {
   hamburger.classList.remove('open');
   mobileMenu.classList.remove('open');
   setTimeout(function() { mobileMenu.style.display = 'none'; }, 300);
   document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', function() {
+  var isOpen = hamburger.classList.contains('open');
+  if (!isOpen) {
+    hamburger.classList.add('open');
+    mobileMenu.style.display = 'flex';
+    setTimeout(function() { mobileMenu.classList.add('open'); }, 10);
+    document.body.style.overflow = 'hidden';
+  } else {
+    closeMenu();
+  }
 });
 
-// Close menu when a link is clicked
+document.getElementById('mobileClose').addEventListener('click', closeMenu);
+
 document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
-  link.addEventListener('click', function() {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    setTimeout(function() { mobileMenu.style.display = 'none'; }, 300);
-    document.body.style.overflow = '';
-  });
+  link.addEventListener('click', closeMenu);
 });
 
 // Stagger service cards
-document.querySelectorAll('.service-card').forEach((card, i) => {
+document.querySelectorAll('.service-card').forEach(function(card, i) {
   card.style.transitionDelay = (i * 80) + 'ms';
 });
 ```
