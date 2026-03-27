@@ -78,31 +78,7 @@
       font-family: var(--font-body);
       font-weight: 300;
       overflow-x: hidden;
-      cursor: none;
     }
-
-    /* Custom cursor */
-    .cursor {
-      width: 12px; height: 12px;
-      background: var(--yellow);
-      border-radius: 50%;
-      position: fixed; top: 0; left: 0;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s, width 0.2s, height 0.2s;
-      mix-blend-mode: normal;
-    }
-    .cursor-ring {
-      width: 36px; height: 36px;
-      border: 1.5px solid var(--yellow);
-      border-radius: 50%;
-      position: fixed; top: 0; left: 0;
-      pointer-events: none; z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform 0.18s cubic-bezier(.25,.46,.45,.94), width 0.3s, height 0.3s, opacity 0.2s;
-      opacity: 0.6;
-    }
-    .cursor-ring.hover { width: 60px; height: 60px; opacity: 0.3; }
 
     /* Noise texture overlay */
     body::before {
@@ -253,7 +229,7 @@
       padding: 1rem 2.4rem; border-radius: 2px;
       font-family: var(--font-head); font-weight: 700; font-size: 0.9rem;
       letter-spacing: 0.04em; text-transform: uppercase;
-      text-decoration: none; border: none; cursor: none;
+      text-decoration: none; border: none; cursor: pointer;
       transition: all 0.2s;
       position: relative; overflow: hidden;
     }
@@ -388,7 +364,6 @@
     .who-item {
       display: flex; align-items: flex-start; gap: 1rem;
       padding: 1.2rem 0; border-bottom: 1px solid var(--border);
-      cursor: none;
       transition: padding-left 0.2s;
     }
     .who-item:hover { padding-left: 0.5rem; }
@@ -519,7 +494,7 @@
       font-family: var(--font-head); font-weight: 600;
       font-size: 1rem; margin-bottom: 0.7rem;
       display: flex; justify-content: space-between; align-items: start;
-      cursor: none; gap: 1rem;
+      cursor: pointer; gap: 1rem;
     }
     .faq-q .toggle {
       color: var(--yellow); font-size: 1.3rem; flex-shrink: 0;
@@ -560,7 +535,6 @@
       color: var(--black);
       font-family: var(--font-body); font-size: 0.92rem;
       outline: none; transition: border-color 0.2s;
-      cursor: none;
     }
     .form-group input:focus,
     .form-group select:focus,
@@ -573,7 +547,7 @@
       padding: 1.1rem 2.5rem; border-radius: 2px;
       font-family: var(--font-head); font-weight: 700; font-size: 0.9rem;
       letter-spacing: 0.05em; text-transform: uppercase;
-      border: none; cursor: none;
+      border: none; cursor: pointer;
       transition: all 0.2s; align-self: center;
       min-width: 200px; font-style: normal;
     }
@@ -668,10 +642,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- Nav -->
   <nav id="navbar">
@@ -1117,17 +1087,6 @@
   <div class="toast" id="toast">✅ Quote request sent! We'll be in touch shortly.</div>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Custom cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
-    function animRing() {
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(animRing);
-    }
-    animRing();
     document.querySelectorAll('a,button,input,select,textarea,.faq-q,.who-item,.service-card,.coverage-tag,.price-row').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('hover'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
