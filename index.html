@@ -1228,77 +1228,87 @@
 
   <div class="toast" id="toast">✅ Quote request sent! We'll be in touch shortly.</div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+(function() {
 
-```
-// Add js-loaded for reveal animations
-document.body.classList.add('js-loaded');
-
-// Nav scroll
-var navbar = document.getElementById('navbar');
-window.addEventListener('scroll', function() {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// Reveal on scroll
-var reveals = document.querySelectorAll('.reveal');
-var obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      setTimeout(function() { e.target.classList.add('visible'); }, 80);
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(function(el) { obs.observe(el); });
-
-// FAQ accordion
-document.querySelectorAll('.faq-q').forEach(function(q) {
-  q.addEventListener('click', function() {
-    var item = q.parentElement;
-    var wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i) {
-      i.classList.remove('open');
+  // ── NAV SCROLL ──
+  var navbar = document.getElementById('navbar');
+  if (navbar) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     });
-    if (!wasOpen) { item.classList.add('open'); }
+  }
+
+  // ── FAQ ACCORDION ──
+  var faqQuestions = document.querySelectorAll('.faq-q');
+  faqQuestions.forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.parentElement;
+      var isOpen = item.classList.contains('open');
+      // close all
+      document.querySelectorAll('.faq-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+      // open this one if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
   });
-});
 
-// Hamburger menu
-var hamburger = document.getElementById('hamburger');
-var mobileMenu = document.getElementById('mobileMenu');
+  // ── HAMBURGER MENU ──
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var mobileClose = document.getElementById('mobileClose');
 
-function closeMenu() {
-  hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
-  setTimeout(function() { mobileMenu.style.display = 'none'; }, 300);
-  document.body.style.overflow = '';
-}
-
-hamburger.addEventListener('click', function() {
-  var isOpen = hamburger.classList.contains('open');
-  if (!isOpen) {
+  function openMenu() {
     hamburger.classList.add('open');
     mobileMenu.style.display = 'flex';
-    setTimeout(function() { mobileMenu.classList.add('open'); }, 10);
+    setTimeout(function() {
+      mobileMenu.classList.add('open');
+    }, 10);
     document.body.style.overflow = 'hidden';
-  } else {
-    closeMenu();
   }
-});
 
-document.getElementById('mobileClose').addEventListener('click', closeMenu);
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    setTimeout(function() {
+      mobileMenu.style.display = 'none';
+    }, 300);
+    document.body.style.overflow = '';
+  }
 
-document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
-  link.addEventListener('click', closeMenu);
-});
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      if (hamburger.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+  }
 
-// Stagger service cards
-document.querySelectorAll('.service-card').forEach(function(card, i) {
-  card.style.transitionDelay = (i * 80) + 'ms';
-});
-```
+  if (mobileClose) {
+    mobileClose.addEventListener('click', closeMenu);
+  }
 
-  </script>
+  var mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // ── SERVICE CARD STAGGER ──
+  document.querySelectorAll('.service-card').forEach(function(card, i) {
+    card.style.transitionDelay = (i * 80) + 'ms';
+  });
+
+})();
+</script>
+
 </body>
 </html>
