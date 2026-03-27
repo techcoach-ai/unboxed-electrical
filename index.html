@@ -502,8 +502,16 @@
       line-height: 1;
     }
     .faq-item.open .faq-q .toggle { transform: rotate(45deg); }
-    .faq-a { font-size: 0.88rem; color: var(--grey); line-height: 1.75; display: none; padding-top: 0.3rem; }
-    .faq-item.open .faq-a { display: block; }
+    .faq-a {
+      font-size: 0.88rem; color: var(--grey); line-height: 1.75;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding-top: 0;
+    }
+    .faq-item.open .faq-a {
+      max-height: 200px;
+      padding-top: 0.5rem;
+    }
 
     /* ── CONTACT ── */
     #contact { position: relative; overflow: hidden; background: var(--charcoal); }
@@ -1113,12 +1121,14 @@
     reveals.forEach(el => obs.observe(el));
 
     // FAQ accordion
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open');
-        if (!wasOpen) item.classList.add('open');
+    document.querySelectorAll('.faq-q').forEach(function(q) {
+      q.addEventListener('click', function() {
+        var item = q.parentElement;
+        var wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+          i.classList.remove('open');
+        });
+        if (!wasOpen) { item.classList.add('open'); }
       });
     });
 
