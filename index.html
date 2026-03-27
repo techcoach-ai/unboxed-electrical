@@ -246,12 +246,15 @@
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(247,196,38,0.3); }
 
     .btn-ghost {
-      color: var(--black); font-size: 0.9rem; font-weight: 400;
+      color: var(--navy); font-size: 0.95rem; font-weight: 500;
       text-decoration: none;
       display: flex; align-items: center; gap: 0.5rem;
-      transition: gap 0.2s;
+      transition: gap 0.2s, color 0.2s;
+      cursor: pointer;
+      border-bottom: 1.5px solid var(--navy);
+      padding-bottom: 1px;
     }
-    .btn-ghost:hover { gap: 0.9rem; }
+    .btn-ghost:hover { gap: 0.9rem; color: var(--yellow-dark); border-color: var(--yellow-dark); }
     .btn-ghost .arrow { font-size: 1.1rem; }
 
     .hero-stats {
