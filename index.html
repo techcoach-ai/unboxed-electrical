@@ -1176,7 +1176,7 @@
     <button type="submit" class="form-submit">Send Quote Request ⚡</button>
   </form>
 
-  <p class="contact-alt reveal">Prefer to call? <a href="tel:+447943821750">07943 821750</a> — or email <a href="mailto:info@unboxedelectrical.co.uk">info@unboxedelectrical.co.uk</a></p>
+  <p class="contact-alt reveal">Prefer to call? <a href="tel:+447943821750">07943 821750</a> — or email <a href="/cdn-cgi/l/email-protection#1e777078715e6b707c71667b7a7b727b7d6a6c777d7f72307d71306b75"><span class="__cf_email__" data-cfemail="11787f777e51647f737e697475747d747265637872707d3f727e3f647a">[email&#160;protected]</span></a></p>
 </div>
 ```
 
@@ -1209,45 +1209,41 @@
       <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);">© 2026 Unboxed Electrical. All rights reserved.</p>
       <p style="font-size:0.8rem;color:rgba(255,255,255,0.25);">PAT Testing Hastings | PAT Testing East Sussex | Portable Appliance Testing St Leonards</p>
     </div>
+    <div style="margin-top:1rem;display:flex;gap:1.5rem;">
+      <a href="privacy-policy.html" style="font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#f7c426'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Privacy Policy</a>
+      <a href="terms.html" style="font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#f7c426'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Terms &amp; Conditions</a>
+    </div>
   </footer>
 
   <!-- Toast -->
 
   <div class="toast" id="toast">✅ Quote request sent! We'll be in touch shortly.</div>
 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
 <script>
 (function() {
-
-  // ── NAV SCROLL ──
+  // Nav scroll
   var navbar = document.getElementById('navbar');
   if (navbar) {
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 60) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
   }
 
-  // ── FAQ ACCORDION ──
-  var faqQuestions = document.querySelectorAll('.faq-q');
-  faqQuestions.forEach(function(q) {
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q) {
     q.addEventListener('click', function() {
       var item = q.parentElement;
       var isOpen = item.classList.contains('open');
-      // close all
       document.querySelectorAll('.faq-item').forEach(function(i) {
         i.classList.remove('open');
       });
-      // open this one if it was closed
-      if (!isOpen) {
-        item.classList.add('open');
-      }
+      if (!isOpen) { item.classList.add('open'); }
     });
   });
 
-  // ── HAMBURGER MENU ──
+  // Hamburger menu
   var hamburger = document.getElementById('hamburger');
   var mobileMenu = document.getElementById('mobileMenu');
   var mobileClose = document.getElementById('mobileClose');
@@ -1255,45 +1251,29 @@
   function openMenu() {
     hamburger.classList.add('open');
     mobileMenu.style.display = 'flex';
-    setTimeout(function() {
-      mobileMenu.classList.add('open');
-    }, 10);
+    setTimeout(function() { mobileMenu.classList.add('open'); }, 10);
     document.body.style.overflow = 'hidden';
   }
-
   function closeMenu() {
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
-    setTimeout(function() {
-      mobileMenu.style.display = 'none';
-    }, 300);
+    setTimeout(function() { mobileMenu.style.display = 'none'; }, 300);
     document.body.style.overflow = '';
   }
-
   if (hamburger) {
     hamburger.addEventListener('click', function() {
-      if (hamburger.classList.contains('open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+      if (hamburger.classList.contains('open')) { closeMenu(); } else { openMenu(); }
     });
   }
-
-  if (mobileClose) {
-    mobileClose.addEventListener('click', closeMenu);
-  }
-
-  var mobileLinks = document.querySelectorAll('.mobile-nav-link');
-  mobileLinks.forEach(function(link) {
+  if (mobileClose) { mobileClose.addEventListener('click', closeMenu); }
+  document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
     link.addEventListener('click', closeMenu);
   });
 
-  // ── SERVICE CARD STAGGER ──
+  // Stagger service cards
   document.querySelectorAll('.service-card').forEach(function(card, i) {
     card.style.transitionDelay = (i * 80) + 'ms';
   });
-
 })();
 </script>
 
