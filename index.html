@@ -19,7 +19,8 @@
   <meta property="og:title" content="Unboxed Electrical | PAT Testing Hastings & East Sussex" />
   <meta property="og:description" content="Certified PAT Testing for landlords, businesses and construction sites across Hastings and East Sussex. Book your test today." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://unboxedelectrical.com" />
+  <meta property="og:url" content="https://unboxedelectrical.com/" />
+  <meta property="og:image" content="https://unboxedelectrical.com/og-image.jpg" />
 
   <!-- Schema.org Local Business -->
 
@@ -42,6 +43,9 @@
   }
   </script>
 
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800;900&family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
@@ -53,13 +57,13 @@
       --navy: #1b2a4a;
       --navy-mid: #243354;
       --navy-light: #2e4068;
-      --black: #1b2a4a;
-      --charcoal: #f0f2f6;
-      --dark: #e6eaf2;
+      --text-dark: #1b2a4a;
+      --bg-light: #f0f2f6;
+      --bg-subtle: #e6eaf2;
       --yellow: #f7c426;
       --yellow-dark: #c9a010;
       --yellow-glow: rgba(247, 196, 38, 0.12);
-      --white: #1b2a4a;
+      --text-primary: #1b2a4a;
       --grey: #5a6b8a;
       --light-grey: #d8dde8;
       --border: rgba(247, 196, 38, 0.3);
@@ -78,7 +82,7 @@
 
     body {
       background: var(--bg);
-      color: var(--white);
+      color: var(--text-primary);
       font-family: var(--font-body);
       font-weight: 300;
       overflow-x: hidden;
@@ -108,7 +112,7 @@
       font-weight: 800;
       font-size: 1.25rem;
       letter-spacing: -0.02em;
-      color: var(--black);
+      color: var(--text-dark);
       text-decoration: none;
       display: flex; align-items: center; gap: 0.6rem;
       font-style: normal;
@@ -138,7 +142,7 @@
     .nav-links a:hover::after { transform: scaleX(1); }
 
     .nav-cta {
-      background: var(--yellow); color: var(--black);
+      background: var(--yellow); color: var(--text-dark);
       padding: 0.6rem 1.4rem; border-radius: 2px;
       font-family: var(--font-head); font-weight: 700; font-size: 0.82rem;
       letter-spacing: 0.05em; text-transform: uppercase;
@@ -209,7 +213,7 @@
     }
     h1 .highlight { color: var(--yellow); }
     h1 .outline {
-      -webkit-text-stroke: 2px var(--black);
+      -webkit-text-stroke: 2px var(--text-dark);
       color: transparent;
     }
 
@@ -229,7 +233,7 @@
     }
 
     .btn-primary {
-      background: var(--yellow); color: var(--black);
+      background: var(--yellow); color: var(--text-dark);
       padding: 1rem 2.4rem; border-radius: 2px;
       font-family: var(--font-head); font-weight: 700; font-size: 0.9rem;
       letter-spacing: 0.04em; text-transform: uppercase;
@@ -303,7 +307,7 @@
     p { line-height: 1.75; }
 
     /* ── SERVICES ── */
-    #services { background: var(--charcoal); }
+    #services { background: var(--bg-light); }
     .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
     .services-header p { max-width: 400px; color: var(--grey); font-size: 0.95rem; }
 
@@ -349,7 +353,7 @@
     .who-bg {
       position: absolute; top: 0; right: 0;
       width: 45%; height: 100%;
-      background: var(--charcoal);
+      background: var(--bg-light);
       clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
     }
     .who-inner { position: relative; z-index: 1; }
@@ -387,12 +391,12 @@
     .price-row {
       display: flex; justify-content: space-between; align-items: center;
       padding: 0.9rem 1rem;
-      background: var(--charcoal);
+      background: var(--bg-light);
       border-radius: 2px;
       font-size: 0.9rem;
       transition: background 0.2s;
     }
-    .price-row:hover { background: var(--dark); }
+    .price-row:hover { background: var(--bg-subtle); }
     .price-row .price { color: var(--yellow-dark); font-family: var(--font-head); font-weight: 700; font-size: 1rem; }
     .price-row .from { font-size: 0.7rem; color: var(--grey); margin-right: 0.2rem; }
     .price-note { font-size: 0.78rem; color: var(--grey); margin-top: 1.2rem; text-align: center; }
@@ -407,7 +411,7 @@
     .addon-row .addon-price { color: var(--yellow-dark); font-weight: 500; font-size: 0.88rem; white-space: nowrap; }
 
     /* ── PROCESS ── */
-    #process { background: var(--charcoal); }
+    #process { background: var(--bg-light); }
     .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin-top: 4rem; }
     .step {
       padding: 2.5rem;
@@ -430,7 +434,7 @@
     #coverage { position: relative; background: #ffffff; }
     .coverage-grid { display: grid; grid-template-columns: 1fr; max-width: 680px; gap: 3rem; align-items: start; }
     .coverage-map {
-      background: var(--charcoal);
+      background: var(--bg-light);
       border: 1px solid var(--border);
       border-radius: 4px;
       aspect-ratio: 1;
@@ -460,7 +464,7 @@
     .map-pin::after {
       content: attr(data-name);
       position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
-      background: var(--yellow); color: var(--black);
+      background: var(--yellow); color: var(--text-dark);
       font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em;
       padding: 0.2rem 0.5rem; border-radius: 2px;
       white-space: nowrap;
@@ -475,14 +479,14 @@
     .coverage-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
     .coverage-tag {
       padding: 0.4rem 0.9rem;
-      background: var(--charcoal); border: 1px solid var(--border);
+      background: var(--bg-light); border: 1px solid var(--border);
       border-radius: 2px; font-size: 0.82rem; color: var(--grey);
       transition: all 0.2s;
     }
     .coverage-tag:hover { background: var(--yellow-glow); color: var(--navy); border-color: var(--yellow); font-weight:500; }
 
     /* ── FAQ ── */
-    #faq { background: var(--charcoal); }
+    #faq { background: var(--bg-light); }
     .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3.5rem; }
     .faq-item { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 0; }
     .faq-q {
@@ -509,7 +513,7 @@
     }
 
     /* ── CONTACT ── */
-    #contact { position: relative; overflow: hidden; background: var(--charcoal); }
+    #contact { position: relative; overflow: hidden; background: var(--bg-light); }
     .contact-glow {
       position: absolute; top: -30%; left: 50%;
       transform: translateX(-50%);
@@ -535,18 +539,18 @@
       border: 1px solid #ddd;
       border-radius: 2px;
       padding: 0.9rem 1rem;
-      color: var(--black);
+      color: var(--text-dark);
       font-family: var(--font-body); font-size: 0.92rem;
       outline: none; transition: border-color 0.2s;
     }
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus { border-color: var(--yellow); box-shadow: 0 0 0 3px rgba(247,196,38,0.1); }
-    .form-group select option { background: #ffffff; color: var(--black); }
+    .form-group select option { background: #ffffff; color: var(--text-dark); }
     .form-group textarea { resize: vertical; min-height: 110px; }
 
     .form-submit {
-      background: var(--yellow); color: var(--black);
+      background: var(--yellow); color: var(--text-dark);
       padding: 1.1rem 2.5rem; border-radius: 2px;
       font-family: var(--font-head); font-weight: 700; font-size: 0.9rem;
       letter-spacing: 0.05em; text-transform: uppercase;
@@ -575,6 +579,8 @@
     .footer-links { display: flex; gap: 1.5rem; list-style: none; }
     .footer-links a { font-size: 0.8rem; color: var(--grey); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--yellow); }
+    .footer-policy-link { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-policy-link:hover { color: var(--yellow); }
     .footer-cert {
       display: flex; align-items: center; gap: 0.8rem;
       font-size: 0.78rem; color: var(--grey);
@@ -590,7 +596,7 @@
     /* ── TOAST ── */
     .toast {
       position: fixed; bottom: 2rem; right: 2rem;
-      background: var(--yellow); color: var(--black);
+      background: var(--yellow); color: var(--text-dark);
       padding: 1rem 1.5rem; border-radius: 2px;
       font-family: var(--font-head); font-weight: 700;
       font-size: 0.85rem;
@@ -1120,32 +1126,31 @@
       <h2 class="reveal">Book Your<br>PAT Test Today</h2>
       <p class="reveal">Fast response, transparent pricing, zero hassle. Fill in the form and we'll get back to you with a fixed quote — usually within a few hours.</p>
 
-```
   <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xzdkznpq" method="POST">
     <div class="form-row">
       <div class="form-group">
-        <label>Your Name *</label>
-        <input type="text" name="name" placeholder="Jane Smith" required />
+        <label for="name">Your Name *</label>
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required />
       </div>
       <div class="form-group">
-        <label>Phone Number *</label>
-        <input type="tel" name="phone" placeholder="07700 900000" required />
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Email Address *</label>
-        <input type="email" name="email" placeholder="jane@example.com" required />
-      </div>
-      <div class="form-group">
-        <label>Your Town / Area *</label>
-        <input type="text" name="location" placeholder="Hastings, Bexhill…" required />
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="07700 900000" required />
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label>Type of Property *</label>
-        <select name="type" required>
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="location">Your Town / Area *</label>
+        <input type="text" id="location" name="location" placeholder="Hastings, Bexhill…" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="type">Type of Property *</label>
+        <select id="type" name="type" required>
           <option value="" disabled selected>Select type…</option>
           <option>Residential / Landlord</option>
           <option>Office / Business</option>
@@ -1156,8 +1161,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Approx. Number of Appliances</label>
-        <select name="count">
+        <label for="count">Approx. Number of Appliances</label>
+        <select id="count" name="count">
           <option value="" disabled selected>Select range…</option>
           <option>Under 20</option>
           <option>20–50</option>
@@ -1168,11 +1173,10 @@
       </div>
     </div>
     <div class="form-group">
-      <label>Additional Notes</label>
-      <textarea name="notes" placeholder="e.g. microwave testing needed, out-of-hours preferred, access requirements…"></textarea>
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="notes" placeholder="e.g. microwave testing needed, out-of-hours preferred, access requirements…"></textarea>
     </div>
     <input type="hidden" name="_subject" value="New PAT Test Quote Request - Unboxed Electrical" />
-    <input type="hidden" name="_next" value="" />
     <button type="submit" class="form-submit">Send Quote Request ⚡</button>
   </form>
 
@@ -1210,8 +1214,8 @@
       <p style="font-size:0.8rem;color:rgba(255,255,255,0.25);">PAT Testing Hastings | PAT Testing East Sussex | Portable Appliance Testing St Leonards</p>
     </div>
     <div style="margin-top:1rem;display:flex;gap:1.5rem;">
-      <a href="privacy-policy.html" style="font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#f7c426'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Privacy Policy</a>
-      <a href="terms.html" style="font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#f7c426'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Terms &amp; Conditions</a>
+      <a href="privacy-policy.html" class="footer-policy-link">Privacy Policy</a>
+      <a href="terms.html" class="footer-policy-link">Terms &amp; Conditions</a>
     </div>
   </footer>
 
